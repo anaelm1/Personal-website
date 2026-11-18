@@ -1,14 +1,39 @@
-const canvas = document.getElementById("bgCanvas");
+const texts = [
+    "hii",
+    "Welcome to my portfolio!",
+    "What's cooking??",
+    "OUII SHIII",
+    "Heylol",
+    "I love HackClub"
+]
 
-let timeProgress = 0; //for day night. 0 is day 1 is night
+document.getElementById("yellowText").textContent = texts[Math.floor(Math.random() * texts.length)];
 
-function animate() {
-    timeProgress += 0.0005;
+const bgMusic = document.getElementById('bgMusic');
+const audioBtn = document.getElementById("audio");
+const soundOnIcon = document.getElementById("soundOnIcon");
+const soundOffIcon = document.getElementById("soundOffIcon");
 
-    if (timeProgress > 1) {
-        timeProgress = 0;
-    
+let isMuted = false;
+
+audioBtn.addEventListener("click", () =>  {
+    isMuted = !isMuted;
+    bgMusic.muted = isMuted;
+
+    if (!isMuted) {
+        soundOnIcon.style = "display:  none;";
+        soundOffIcon.style = "";
     }
+    else {
+        soundOffIcon.style = "display:  none;";
+        soundOnIcon.style = "";
+    }
+});
 
-    
-}
+document.addEventListener('click', function() {
+    if (bgMusic.paused) {
+        bgMusic.volume = 1.0;
+        bgMusic.play();
+    }
+}, { once: true });
+
