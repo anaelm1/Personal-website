@@ -3,9 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Projects</title>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    
+<body class="projectsPage">
+    <audio id="clicksound">
+        <source src="assets/minecraft_click.mp3" type="audio/mpeg">
+    </audio>
+
+    <header class="topBar">
+        <h1>My Projects</h1>
+    </header>
+
+    <main class="worldScroll">
+        <div class="worldList" id="worldList">
+            <button type="button" class="worldItem selected" data-url="https://github.com/anaelm1/GamePad-9">
+                <img src="assets/world1.png" alt="Picture" class="worldThumb">
+                <span class="worldDetails">
+                    <span class="worldName">GamePad 9</span>
+                    <span class="worldSub">GamePad 9 is a 9 key macropad with a custom PCB and custom 3D printed body.</span>
+                </span>
+            </button>
+
+            <button type="button" class="worldItem" data-url="https://github.com/anaelm1/Slab-Clock">
+                <img src="assets/world2.png" alt="Picture" class="worldThumb">
+                <span class="worldDetails">
+                    <span class="worldName">Slab Clock</span>
+                    <span class="worldSub">Slab Clock is a 4 key alaram clock with a screen to display time and a buzzer for alarms. It also has a custom PCB and 3D printed body.</span>
+                </span>
+            </button>
+
+            <button type="button" class="worldItem" data-url="https://github.com/anaelm1/MiniPod">
+                <img src="assets/world3.png" alt="Picture" class="worldThumb">
+                <span class="worldDetails">
+                    <span class="worldName">MiniPod</span>
+                    <span class="worldSub">MiniPod is a simple MP3 player which functions using the Arduino Nano, and even has an OLED Display. It also has a custom PCB and 3D printed body.</span>
+                </span>
+            </button>
+        </div>
+    </main>
+
+    <footer class="bottomBar">
+        <div class="btnGrid">
+            <button id="playBtn" class="UpperButtons">Play Selected World</button>
+            <a href="#contact" class="UpperButtons">Create New World</a>
+            <button id="editBtn" class="UpperButtons">Edit</button>
+            <a href="index.html" class="UpperButtons">Cancel</a>
+        </div>
+    </footer>
+
+    <script src="projects.js"></script>
 </body>
 </html>

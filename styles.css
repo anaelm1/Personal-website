@@ -4,13 +4,21 @@
   src: url("../fonts/minecraftfont.woff") format("woff"), url("../fonts/minecraftfont.ttf") format("truetype");
 }
 
-#bgCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vh;
-    height: 100vh;
-    z-index: -1;
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+}
+
+#HeadingIMG,
+#menu,
+#audio {
+    position: relative;
+    z-index: 1;
 }
 
 body {
@@ -20,31 +28,10 @@ body {
     align-items: center;
     margin: 0;
     overflow-x: hidden;
-    box-sizing: border-box;
 }
 
 button, a {
     cursor: url('assets/pickaxe.png') 4 4, pointer !important;
-}
-
-#audio {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: rgba(0, 0, 0, 0.6); 
-    border: 2px solid #555;
-    border-radius: 6px;
-    padding: 6px;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#audio img {
-    width: 24px;
-    height: 24px;
-    image-rendering: pixelated;
 }
 
 #menu {
@@ -102,40 +89,170 @@ button, a {
     box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.5);
 }
 
-#HeadingIMG {
-    display: block;
-    max-width: 850px;
-    width: 90vw;
-    height: auto;
-    margin: 40px auto 90px auto;
-    position: relative;
-}
-
-#HeadingIMG img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-#yellowText {
-    position: absolute;
-    top: 80px;                      
-    right: 120px;         
-    color: #ffff00;
-    font-family: 'Minecraft', monospace;
-    font-size: clamp(0.75rem, 1.6vw, 1.05rem);
-    text-shadow: 2px 2px 0 #3f3f00;
-    white-space: nowrap;
-    pointer-events: none;
-    user-select: none;
-    animation: pulse 0.45s infinite alternate ease-in-out;
-}
-
 @keyframes pulse {
     from {
         transform: rotate(-20deg) scale(1);
     }
     to {
         transform: rotate(-20deg) scale(1.08);
+    }
+}
+
+html:has(body.projectsPage),
+body.projectsPage {
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+body.projectsPage {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    font-family: 'Minecraft', monospace;
+    color: #ffffff;
+    background-color: #141414;
+}
+
+.topBar,
+.bottomBar {
+    width: 100%;
+    flex-shrink: 0;
+    background-color: #4a3322;
+    background-image: url("assets/dirt.png");
+    background-repeat: repeat;
+    background-size: 64px 64px;
+    image-rendering: pixelated;
+    z-index: 2;
+}
+
+.topBar {
+    padding: 16px 16px 14px;
+    text-align: center;
+    border-bottom: 2px solid #140d08;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.55);
+}
+
+.bottomBar {
+    padding: 14px 16px 18px;
+    border-top: 2px solid #140d08;
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.12);
+}
+
+.worldScroll {
+    flex: 1 1 0;
+    min-height: 0;
+    width: 100%;
+    overflow-y: auto;
+    padding: 16px;
+    position: relative;
+    background-color: #1a120c;
+    background-image:
+        linear-gradient(rgba(10, 8, 6, 0.72), rgba(10, 8, 6, 0.72)),
+        url("assets/dirt.png");
+    background-repeat: repeat;
+    background-size: 64px 64px;
+    image-rendering: pixelated;
+    box-shadow:
+        inset 0 8px 14px rgba(0, 0, 0, 0.85),
+        inset 0 -8px 14px rgba(0, 0, 0, 0.85);
+}
+
+.worldList {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.worldItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 14px;
+    background-color: transparent;
+    border: 2px solid transparent;
+    font-family: inherit;
+    text-align: left;
+    color: inherit;
+    user-select: none;
+}
+
+.worldItem:hover,
+.worldItem:focus-visible {
+    background-color: rgba(255, 255, 255, 0.04);
+    border-color: rgba(160, 160, 160, 0.4);
+    outline: none;
+}
+
+.worldItem.selected {
+    background-color: rgba(0, 0, 0, 0.65);
+    border: 1px solid #a8a8a8;
+}
+
+.worldThumb {
+    width: 140px;
+    height: 140px;
+    min-width: 140px;
+    min-height: 140px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2a2a2a;
+    border: 2px solid #080808;
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.15);
+    image-rendering: pixelated;
+    object-fit: cover;
+    font-size: 0.65rem;
+    color: #cccccc;
+    text-align: center;
+}
+
+.worldDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    line-height: 1.3;
+    min-width: 0;
+}
+
+.worldName {
+    font-size: 1.35rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #242424;
+}
+
+.worldSub,
+.worldMode {
+    font-size: 1.05rem;
+    color: #8c8c8c;
+    text-shadow: 1px 1px 0 #141414;
+}
+
+.btnGrid {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 12px;
+}
+
+.btnGrid .UpperButtons {
+    width: 100%;
+    height: 36px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 520px) {
+    .btnGrid {
+        grid-template-columns: 1fr;
     }
 }
