@@ -163,7 +163,7 @@ body.projectsPage {
 
 .worldList {
     width: 100%;
-    max-width: 720px;
+    max-width: 900px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -175,7 +175,7 @@ body.projectsPage {
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 12px 14px;
+    padding: 14px 16px;
     background-color: transparent;
     border: 2px solid transparent;
     font-family: inherit;
@@ -197,8 +197,8 @@ body.projectsPage {
 }
 
 .worldThumb {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     min-width: 140px;
     min-height: 140px;
     flex-shrink: 0;
@@ -224,21 +224,21 @@ body.projectsPage {
 }
 
 .worldName {
-    font-size: 1.35rem;
+    font-size: 1.8rem;
     color: #ffffff;
     text-shadow: 2px 2px 0 #242424;
 }
 
 .worldSub,
 .worldMode {
-    font-size: 1.05rem;
+    font-size: 1.3rem;
     color: #8c8c8c;
     text-shadow: 1px 1px 0 #141414;
 }
 
 .btnGrid {
     width: 100%;
-    max-width: 560px;
+    max-width: 720px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -247,8 +247,8 @@ body.projectsPage {
 
 .btnGrid .UpperButtons {
     width: 100%;
-    height: 36px;
-    font-size: 0.9rem;
+    height: 46px;
+    font-size: 1.1rem;
 }
 
 @media (max-width: 520px) {

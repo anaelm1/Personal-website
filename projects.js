@@ -9,8 +9,8 @@ document.addEventListener('click', function() {
 });
 
 const worldItems = document.querySelectorAll('.worldItem');
-const playBtn = document.getElementById('playBtn');
-const editBtn = document.getElementById('editBtn');
+const repoBtn = document.getElementById('repoBtn');
+const demoBtn = document.getElementById('demoBtn');
 
 let activeWorld = document.querySelector('.worldItem.selected') || worldItems[0];
 
@@ -20,11 +20,19 @@ function pickWorld(item) {
     activeWorld = item;
 }
 
-function openWorld() {
+function openrepo() {
     if (!activeWorld) return;
-    const link = activeWorld.dataset.url;
-    if (link && link !== '#') {
-        window.open(link, '_blank', 'noopener,noreferrer');
+    const repolink = activeWorld.dataset.repo;
+    if (repolink && repolink !== '#') {
+        window.open(repolink, '_blank', 'noopener,noreferrer');
+    }
+}
+
+function opendemo() {
+    if (!activeWorld) return;
+    const demolink = activeWorld.dataset.demo;
+    if (demolink && demolink !=="#") {
+        window.open(demolink, '_blank', 'noopener,noreferrer');
     }
 }
 
@@ -32,11 +40,15 @@ worldItems.forEach(item => {
     item.addEventListener('click', () => pickWorld(item));
     item.addEventListener('dblclick', () => {
         pickWorld(item);
-        openWorld();
+        openrepo();
     });
 });
 
-if (playBtn) {
-    playBtn.addEventListener('click', openWorld);
+if (repoBtn) {
+    repoBtn.addEventListener('click', openrepo);
+}
+
+if (demoBtn) {
+    demoBtn.addEventListener('click', opendemo);
 }
 
