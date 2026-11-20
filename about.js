@@ -6,6 +6,16 @@ document.addEventListener('click', function() {
         clicksound.volume = 1.0;
         clicksound.play();
     }
+
+    if (buttonCheck.tagName === "A") {
+        const href = buttonCheck.getAttribute("href");
+        if (href && !href.startsWith("#") && buttonCheck.target !== "_blank") {
+            event.preventDefault();
+            setTimeout(() => {
+                window.location.href = href;
+            }, 120);
+        }
+    }
 });
 
 function copyContact(btn) {
