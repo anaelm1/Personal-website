@@ -3,9 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Me</title>
+
+    <link rel="stylesheet" href="about.css">
 </head>
-<body>
+<body class="aboutPage">
+    <audio id="clicksound">
+        <source src="assets/minecraft_click.mp3" type="audio/mpeg">
+    </audio>
+    <header class="topBar">
+        <h1>About Me</h1>
+    </header>
+
+    <div class="aboutSplit">
+        <div class="aboutText">
+            <p class="aboutLine aboutLead">Hello, I'm Anael Mumtaz.</p>
+
+            <p class="aboutLine aboutLocation">
+                I live in <span class="hlAqua">Karachi, Pakistan</span>, and am currently studying <span class="hlAqua">A Levels</span> at <span class="hlAqua">Nixor College</span>.
+            </p>
+
+            <p class="aboutLine aboutStem">
+                I am really enthusiastic about <span class="hlEmerald">STEM</span> and am working on both <span class="hlEmerald">hardware</span> and <span class="hlEmerald">software</span> projects.
+            </p>
+
+            <p class="aboutLine aboutproject">
+                Take a look around and see what I have been up to!
+            </p>
+
+            <div class="contactsection">
+                <p class="aboutLine aboutContact">
+                    Contact Me:
+                </p>
+                
+
+                <div class="mcHotbar" aria-label="Contact links">
+                    <button type="button" class="hotbarSlot" data-copy="anaelmumtaz15@gmail.com" onclick="copyContact(this)">
+                        <img class="slotIcon" src="assets/gmailIIcon.png">
+                        <span class="mcTooltip">
+                            <span class="ttTitle">Gmail</span>
+                            <span class="ttSub">Click to copy email</span>
+                        </span>
+                    </button>
+
+                    <a href="https://www.instagram.com/anael_m1/" target="_blank" rel="noopener" class="hotbarSlot">
+                        <img class="slotIcon" src="">
+                        <span class="mcTooltip">
+                            <span class="ttTitle" style="color:#ff55ff;">Instagram</span>
+                            <span class="ttSub">@anael_m1</span>
+                        </span>
+                    </a>
+
+                    <a href="" target="_blank" rel="noopener" class="hotbarSlot">
+                        <img class="slotIcon" src="">
+                        <span class="mcTooltip">
+                            <span class="ttTitle" style="color:#55ff55;">Slack</span>
+                            <span class="ttSub">Message me on Slack</span>
+                        </span>
+                    </a>
+
+                    <button type="button" class="hotbarSlot" data-copy="+92 334 9896916" onclick="copyContact(this)">
+                        <img class="slotIcon" src="">
+                        <span class="mcTooltip">
+                            <span class="ttTitle" style="color:#ffaa00;">Phone</span>
+                            <span class="ttSub">+92 334 9896916 (Click to copy)</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="skinPanel">
+            <img src="assets/pickaxe.png" alt="Minecraft Skin" class="skinImg">
+        </div>
+    </div>
+
+    <div class="btnGrid">
+        <a href="https://github.com/anaelm1/" target="_blank" rel="noopener noreferrer" class="UpperButtons">Github</a>
+        <a href="projects.html" class="UpperButtons"> My Projects</a>
+        <a href="index.html" class="UpperButtons">Go Back</a>
+    </div>
+
+    <script src="about.js"></script>
     
 </body>
 </html>

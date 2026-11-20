@@ -8,38 +8,38 @@ document.addEventListener('click', function() {
     }
 });
 
-const worldItems = document.querySelectorAll('.worldItem');
+const projectItems = document.querySelectorAll('.projectItem');
 const repoBtn = document.getElementById('repoBtn');
 const demoBtn = document.getElementById('demoBtn');
 
-let activeWorld = document.querySelector('.worldItem.selected') || worldItems[0];
+let activeproject = document.querySelector('.projectItem.selected') || projectItems[0];
 
-function pickWorld(item) {
-    worldItems.forEach(row => row.classList.remove('selected'));
+function pickproject(item) {
+    projectItems.forEach(row => row.classList.remove('selected'));
     item.classList.add('selected');
-    activeWorld = item;
+    activeproject = item;
 }
 
 function openrepo() {
-    if (!activeWorld) return;
-    const repolink = activeWorld.dataset.repo;
+    if (!activeproject) return;
+    const repolink = activeproject.dataset.repo;
     if (repolink && repolink !== '#') {
         window.open(repolink, '_blank', 'noopener,noreferrer');
     }
 }
 
 function opendemo() {
-    if (!activeWorld) return;
-    const demolink = activeWorld.dataset.demo;
+    if (!activeproject) return;
+    const demolink = activeproject.dataset.demo;
     if (demolink && demolink !=="#") {
         window.open(demolink, '_blank', 'noopener,noreferrer');
     }
 }
 
-worldItems.forEach(item => {
-    item.addEventListener('click', () => pickWorld(item));
+projectItems.forEach(item => {
+    item.addEventListener('click', () => pickproject(item));
     item.addEventListener('dblclick', () => {
-        pickWorld(item);
+        pickproject(item);
         openrepo();
     });
 });
