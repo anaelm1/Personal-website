@@ -252,14 +252,7 @@ body.aboutPage {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.skinImg {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    display: block;
-    image-rendering: pixelated;
+    z-index: 10;
 }
 
 .aboutSplit {
@@ -278,7 +271,7 @@ body.aboutPage {
     }
 }
 
-.mcHotbar {
+.contactBar {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -295,7 +288,7 @@ body.aboutPage {
         inset -2px -2px 0 #555555;
 }
 
-.hotbarSlot {
+.contactEach {
     position: relative;
     width: 60px;
     height: 60px;
@@ -311,22 +304,22 @@ body.aboutPage {
     text-decoration: none;
 }
 
-.hotbarSlot:hover,
-.hotbarSlot:focus-visible {
+.contactEach:hover,
+.contactEach:focus-visible {
     outline: 3px solid #ffffff;
     outline-offset: -3px;
     background-color: #9e9e9e;
     z-index: 10;
 }
 
-.slotIcon {
+.contactIcon {
     width: 35px;
     height: 35px;
     image-rendering: pixelated;
     shape-rendering: crispEdges;
 }
 
-.mcTooltip {
+.CDetails {
     position: absolute;
     bottom: calc(100% + 10px);
     left: 50%;
@@ -350,18 +343,18 @@ body.aboutPage {
     z-index: 20;
 }
 
-.hotbarSlot:hover .mcTooltip,
-.hotbarSlot:focus-visible .mcTooltip {
+.contactEach:hover .CDetails,
+.contactEach:focus-visible .CDetails {
     opacity: 1;
 }
 
-.ttTitle {
+.CTitle {
     font-size: 0.95rem;
     color: #ffffff;
     text-shadow: 2px 2px 0 #3f3f3f;
 }
 
-.ttSub {
+.CSub {
     font-size: 0.8rem;
     color: #aaaaaa;
     text-shadow: 1px 1px 0 #2a2a2a;

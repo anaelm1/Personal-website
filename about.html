@@ -37,36 +37,36 @@
                 </p>
                 
 
-                <div class="mcHotbar" aria-label="Contact links">
-                    <button type="button" class="hotbarSlot" data-copy="anaelmumtaz15@gmail.com" onclick="copyContact(this)">
-                        <img class="slotIcon" src="assets/gmailIIcon.png">
-                        <span class="mcTooltip">
-                            <span class="ttTitle">Gmail</span>
-                            <span class="ttSub">Click to copy email</span>
+                <div class="contactBar" aria-label="Contact links">
+                    <button type="button" class="contactEach" data-copy="anaelmumtaz15@gmail.com" onclick="copyContact(this)">
+                        <img class="contactIcon" src="assets/gmailIIcon.png">
+                        <span class="CDetails">
+                            <span class="CTitle">Gmail</span>
+                            <span class="CSub">Click to copy email</span>
                         </span>
                     </button>
 
-                    <a href="https://www.instagram.com/anael_m1/" target="_blank" rel="noopener" class="hotbarSlot">
-                        <img class="slotIcon" src="">
-                        <span class="mcTooltip">
-                            <span class="ttTitle" style="color:#ff55ff;">Instagram</span>
-                            <span class="ttSub">@anael_m1</span>
+                    <a href="https://www.instagram.com/anael_m1/" target="_blank" rel="noopener" class="contactEach">
+                        <img class="contactIcon" src="">
+                        <span class="CDetails">
+                            <span class="CTitle" style="color:#ff55ff;">Instagram</span>
+                            <span class="CSub">@anael_m1</span>
                         </span>
                     </a>
 
-                    <a href="" target="_blank" rel="noopener" class="hotbarSlot">
-                        <img class="slotIcon" src="">
-                        <span class="mcTooltip">
-                            <span class="ttTitle" style="color:#55ff55;">Slack</span>
-                            <span class="ttSub">Message me on Slack</span>
+                    <a href="" target="_blank" rel="noopener" class="contactEach">
+                        <img class="contactIcon" src="">
+                        <span class="CDetails">
+                            <span class="CTitle" style="color:#55ff55;">Slack</span>
+                            <span class="CSub">Message me on Slack</span>
                         </span>
                     </a>
 
-                    <button type="button" class="hotbarSlot" data-copy="+92 334 9896916" onclick="copyContact(this)">
-                        <img class="slotIcon" src="">
-                        <span class="mcTooltip">
-                            <span class="ttTitle" style="color:#ffaa00;">Phone</span>
-                            <span class="ttSub">+92 334 9896916 (Click to copy)</span>
+                    <button type="button" class="contactEach" data-copy="+92 334 9896916" onclick="copyContact(this)">
+                        <img class="contactIcon" src="">
+                        <span class="CDetails">
+                            <span class="CTitle" style="color:#ffaa00;">Phone</span>
+                            <span class="CSub">+92 334 9896916 (Click to copy)</span>
                         </span>
                     </button>
                 </div>
@@ -74,7 +74,7 @@
         </div>
 
         <div class="skinPanel">
-            <img src="assets/pickaxe.png" alt="Minecraft Skin" class="skinImg">
+            <canvas id="skinRender"></canvas>
         </div>
     </div>
 
@@ -85,6 +85,116 @@
     </div>
 
     <script src="about.js"></script>
-    
+    <script type="module">
+        import * as skinview3d from "https://cdn.jsdelivr.net/npm/skinview3d/+esm";
+
+        const canvas = document.getElementById("skinRender");
+
+        const viewer = new skinview3d.SkinViewer({
+            canvas: canvas,
+            width: 500,
+            height: 400,
+            skin: "assets/skin.png",
+            cape: "assets/cape.png",
+            zoom: 0.72,
+            enableControls: true
+        });
+
+        viewer.nameTag = new skinview3d.NameTagObject("Anael", { textStyle: "cyan" });
+
+        let targetYaw = 0;
+        let targetPitch = 0;
+
+        let isOverContacts = false;
+        let nodPhase = 0;
+        let nodWeight = 0;
+        let lastTime = performance.now();
+
+        const contactBar = document.querySelector(".contactBar");
+
+        if (contactBar) {
+            contactBar.addEventListener("pointerenter", () => {
+                isOverContacts = true;
+                nodPhase = 0;
+            });
+
+            contactBar.addEventListener("pointerleave", () => {
+                isOverContacts = false;
+            });
+        }
+
+        // const WAVE_DURATION = 2.8;
+        // let waveTimeLeft = 0;
+        let elapsed = 0;
+
+        // function triggerWave(duration = WAVE_DURATION) {
+        //     waveTimeLeft = Math.max(waveTimeLeft, duration);
+        // }
+
+        // yaw is left right, pitch is up down. This is the cursor tracking.
+        window.addEventListener("pointermove", (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            const normX = Math.max(-1, Math.min(1, (e.clientX - centerX) / (window.innerWidth * 0.5)));
+            const normY = Math.max(-1, Math.min(1, (e.clientY - centerY) / (window.innerHeight * 0.5)));
+
+            targetYaw = normX * 0.75;
+            targetPitch = normY * 0.75;
+        });
+
+        // let downPos = null;
+        // canvas.addEventListener("pointerdown", (e) => {
+        //     downPos = { x: e.clientX, y: e.clientY };
+        // });
+
+        // canvas.addEventListener("pointerup", (e) => {
+        //     if (!downPos) return;
+        //     const dist = Math.hypot(e.clientX - downPos.x, e.clientY - downPos.y);
+        //     if (dist < 5) triggerWave(WAVE_DURATION);
+        //     downPos = null;
+        // });
+
+        viewer.animation = new skinview3d.FunctionAnimation((player, delta) => {
+            const now = performance.now();
+            const dt = Math.min((now - lastTime) / 1000, 0.05);
+            lastTime = now;
+           
+            //Nod over contactbar
+            let nodOffset = 0;
+            if (isOverContacts) {
+                nodWeight += (1 - nodWeight) * 0.1;
+                nodPhase += dt * 7;
+            } else {
+                nodWeight += (0 - nodWeight) * 0.1;
+                if (nodWeight < 0.01) nodPhase = 0;
+            }
+            const smoothDip = 0.5 - 0.5 * Math.cos(nodPhase);
+            nodOffset = smoothDip * 0.3 * nodWeight;
+
+            //Cursor Tracking
+            const head = player.skin.head;
+            const desiredPitch = targetPitch + nodOffset;
+            head.rotation.y += (targetYaw - head.rotation.y) * 0.16;
+            head.rotation.x += (desiredPitch - head.rotation.x) * 0.16;
+
+            //Hand Wave
+            // if (waveTimeLeft > 0) {
+            //     waveTimeLeft = Math.max(0, waveTimeLeft - delta);
+            //     const progress = 1 - (waveTimeLeft / WAVE_DURATION);
+            //     const envelope = Math.sin(progress * Math.PI);
+            //     const waveSwing = Math.sin(elapsed * 7.5) * 0.35 * envelope;
+            //     const targetArmX = -2.45 * envelope;
+            //     const targetArmZ = (-0.32 * envelope) + waveSwing;
+            //
+            //     rightArm.rotation.x += (targetArmX - rightArm.rotation.x) * 0.1;
+            //     rightArm.rotation.z += (targetArmZ - rightArm.rotation.z) * 0.12;
+            // } else {
+            //     rightArm.rotation.x += (0 - rightArm.rotation.x) * 0.1;
+            //     rightArm.rotation.z += (0 - rightArm.rotation.z) * 0.1;
+            // }
+        });
+    </script>
 </body>
 </html>

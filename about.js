@@ -30,7 +30,7 @@ function copyContact(btn) {
         sound.play().catch(() => {});
     }
 
-    const sub = btn.querySelector(".ttSub");
+    const sub = btn.querySelector(".CSub");
     const original = sub.textContent;
     sub.textContent = "Copied!";
     sub.style.color = "#55ff55";
