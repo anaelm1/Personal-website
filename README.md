@@ -57,10 +57,12 @@ Open the local URL shown in your terminal or editor (usually `http://localhost:8
 * The 3D character viewer in `about.html` imports `skinview3d` from `https://cdn.jsdelivr.net/npm/skinview3d/+esm`, so an internet connection is needed to load that module.
 
 ## AI Usage
-I tried my best to avoid AI but these are the places where it was used:
-    - The design choices/values such as the colors of each line were given by Gemini since I wanted to recreate the minecraft menu exactly. However, it did not write the CSS directly. 
-    - Help in the final head nodding Javascript code such as recommending me to use trig functions to make it smooth. 
-    - Code debugging. 
+
+I tried my best to avoid AI, but these are the places where it was used:
+
+- The design choices and values, such as the colors of each line, were given by Gemini since I wanted to recreate the Minecraft menu exactly. However, it did not write the CSS directly.
+- Help with the final head nodding JavaScript code, such as recommending the use of trigonometric functions to make the motion smooth.
+- Code debugging.
 
 ## Future plans
 This is the start of this project. I have so many ideas and easter eggs in mind, and I plan on adding all of them in the future. 
