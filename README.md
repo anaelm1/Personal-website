@@ -31,7 +31,7 @@ Because this project uses static HTML, CSS, JavaScript, and ES modules (`<script
 
 ```bash
 git clone https://github.com/anaelm1/Personal-website
-cd <Personal-website>
+cd Personal-website
 ```
 
 ### 2. Start a Local Server
