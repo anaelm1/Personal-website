@@ -68,13 +68,48 @@ button, a {
 }
 
 #background {
-    background-image: 
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+    background-image:
         linear-gradient(rgba(10, 8, 6, 0.65), rgba(10, 8, 6, 0.65)),
         url("assets/dirt.png");
     background-repeat: repeat;
     background-size: 64px 64px;
     image-rendering: pixelated;
     z-index: 2;
+}
+
+.topBar {
+    width: 100%;
+    padding: 14px 16px;
+    text-align: center;
+    border-bottom: 2px solid #140d08;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.55);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Minecraft', monospace;
+    color: white;
+}
+
+.Pickerdescription {
+    font-family: 'Minecraft', monospace;
+    color: white;
+    font-size: clamp(1rem, 3.5vw, 1.3rem);
+    margin-top: 10px;
+    text-align: center;
+}
+
+.panoramaOption img {
+    width: min(500px, 88vw);
+    max-width: 100%;
+    aspect-ratio: 5 / 2;
+    height: auto;
+    object-fit: cover;
+    image-rendering: pixelated;
+    display: block;
 }
 
 .panoramaPicker {
@@ -99,37 +134,6 @@ button, a {
     font-family: inherit;
     cursor: pointer;
     flex-wrap: wrap;
-}
-
-.panoramaOption img {
-    width: 500px;
-    height: 200px;
-    object-fit: cover;
-    image-rendering: pixelated;
-    display: block;
-}
-
-.topBar {
-    padding: 16px 16px 14px;
-    text-align: center;
-    border-bottom: 2px solid #140d08;
-    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.55);
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    font-family: 'Minecraft', monospace;
-    color: white;
-}
-
-.Pickerdescription {
-    font-family: 'Minecraft', monospace;
-    color: white;
-    font-size: 1.3rem;
-    margin-top: 10px;
-    text-align: left;
 }
 
 .panoramaOption { 

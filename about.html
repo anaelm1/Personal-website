@@ -123,13 +123,7 @@
             });
         }
 
-        // const WAVE_DURATION = 2.8;
-        // let waveTimeLeft = 0;
         let elapsed = 0;
-
-        // function triggerWave(duration = WAVE_DURATION) {
-        //     waveTimeLeft = Math.max(waveTimeLeft, duration);
-        // }
 
         // yaw is left right, pitch is up down. This is the cursor tracking.
         window.addEventListener("pointermove", (e) => {
@@ -143,18 +137,6 @@
             targetYaw = normX * 0.75;
             targetPitch = normY * 0.75;
         });
-
-        // let downPos = null;
-        // canvas.addEventListener("pointerdown", (e) => {
-        //     downPos = { x: e.clientX, y: e.clientY };
-        // });
-
-        // canvas.addEventListener("pointerup", (e) => {
-        //     if (!downPos) return;
-        //     const dist = Math.hypot(e.clientX - downPos.x, e.clientY - downPos.y);
-        //     if (dist < 5) triggerWave(WAVE_DURATION);
-        //     downPos = null;
-        // });
 
         viewer.animation = new skinview3d.FunctionAnimation((player, delta) => {
             const now = performance.now();
@@ -178,22 +160,6 @@
             const desiredPitch = targetPitch + nodOffset;
             head.rotation.y += (targetYaw - head.rotation.y) * 0.16;
             head.rotation.x += (desiredPitch - head.rotation.x) * 0.16;
-
-            //Hand Wave
-            // if (waveTimeLeft > 0) {
-            //     waveTimeLeft = Math.max(0, waveTimeLeft - delta);
-            //     const progress = 1 - (waveTimeLeft / WAVE_DURATION);
-            //     const envelope = Math.sin(progress * Math.PI);
-            //     const waveSwing = Math.sin(elapsed * 7.5) * 0.35 * envelope;
-            //     const targetArmX = -2.45 * envelope;
-            //     const targetArmZ = (-0.32 * envelope) + waveSwing;
-            //
-            //     rightArm.rotation.x += (targetArmX - rightArm.rotation.x) * 0.1;
-            //     rightArm.rotation.z += (targetArmZ - rightArm.rotation.z) * 0.12;
-            // } else {
-            //     rightArm.rotation.x += (0 - rightArm.rotation.x) * 0.1;
-            //     rightArm.rotation.z += (0 - rightArm.rotation.z) * 0.1;
-            // }
         });
     </script>
 </body>
