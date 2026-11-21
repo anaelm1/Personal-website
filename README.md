@@ -1,4 +1,4 @@
-## Portfolio Website 
+# Portfolio Website 
 This project is a personal website for myself. It showcases all my projects and has some cool features aswell. The theme is minecraft as I grew up playing it.
 
 Check it out at: [Website](<https://personal-website-ashen-tau-20.vercel.app/index.html>)
