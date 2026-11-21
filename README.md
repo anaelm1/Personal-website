@@ -25,7 +25,7 @@ I wanted to use node js for this website, cuz I wanted to learn it. However, I r
 
 ## How to Run Locally
 
-Because this project uses static HTML, CSS, JavaScript, and ES modules (`<script type="module">`)[cite: 1] with files loaded from `assets/`[cite: 1], running it through a local web server is recommended (opening `index.html` directly via `file://` can cause issues with module imports or local assets in some browsers).
+Because this project uses static HTML, CSS, JavaScript, and ES modules (`<script type="module">`) with files loaded from `assets/`, running it through a local web server is recommended (opening `index.html` directly via `file://` can cause issues with module imports or local assets in some browsers).
 
 ### 1. Clone or Download the Repository
 
