@@ -171,3 +171,20 @@ button, a {
         transform: rotate(-20deg) scale(1.08);
     }
 }
+
+#Heading {
+    font-family: 'Minecraft', monospace;
+    color: #ffffff;
+    text-shadow:
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px  2px 0 #000,
+        2px  2px 0 #000,
+        0px  4px 0 #1f1f1f;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
