@@ -16,12 +16,16 @@ body#panorama {
     background-color: #262626;
 }
 
+:root {
+    --panorama-bg: url("assets/panorama.webp");
+}
+
 body#panorama::before {
     content: "";
     position: fixed;
     inset: -16px; 
     z-index: -1;
-    background-image: url("../assets/panorama.webp");
+    background-image: var(--panorama-bg);
     background-repeat: repeat-x;
     background-position: 0 center;
     background-size: auto 100%;
@@ -153,7 +157,7 @@ button, a {
     position: absolute;
     top: 80px;                      
     right: 120px;         
-    color: #ffff00;
+    color: gold;
     font-family: 'Minecraft', monospace;
     font-size: clamp(0.75rem, 1.6vw, 1.05rem);
     text-shadow: 2px 2px 0 #3f3f00;
@@ -174,7 +178,7 @@ button, a {
 
 #Heading {
     font-family: 'Minecraft', monospace;
-    color: #ffffff;
+    color: white;
     text-shadow:
         -2px -2px 0 #000,
         2px -2px 0 #000,

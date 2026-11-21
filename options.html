@@ -5,26 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anael's portfolio</title>
 
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="options.css">
 </head>
-<body id="panorama">
-    <audio id="bgMusic" loop>
-        <source src="assets/MoogCity2.mp3" type="audio/mpeg">
-    </audio>
-    <button id="audio">
-        <img src="assets/volumeclose.png" alt="Sound On" id="soundOffIcon">
-        <img src="assets/volumeopen.png" alt="Sound Off" id="soundOnIcon" style="display:  none;">
-    </button>
-
+<body id="background">
     <audio id="clicksound">
         <source src="assets/minecraft_click.mp3" type="audio/mpeg">
     </audio>
+    
+    <header class="topBar">
+        <h1>Panorama Selector</h1>
+    </header>
 
-    <div id="Heading">
-        <h1>Coming Soon!</h1>
-        <div id="menu">
-            <a class="UpperButtons" href="index.html">Go back</a>
-        </div>
+    <div class="Pickerdescription">
+        Click on a Panorama to switch to that one!
+    </div>
+
+    <div class="panoramaPicker">
+        <button type="button" class="panoramaOption" data-href="index.html">
+            <img src="assets/panorama.webp">
+        </button>
+        <button type="button" class="panoramaOption" data-href="index.html">
+            <img src="assets/panorama2.png">
+        </button>
+        <button type="button" class="panoramaOption" data-href="index.html">
+            <img src="assets/panorama3.png">
+        </button>
+        <button type="button" class="panoramaOption" data-href="index.html">
+            <img src="assets/panorama4.png">
+        </button>
+    </div>
+
+    <div id="menu">
+        <a class="UpperButtons" href="index.html">Go back</a>
     </div>
 
     <script src="options.js"></script>

@@ -1,0 +1,150 @@
+@font-face {
+  font-family: 'Minecraft';
+  src: url("../fonts/minecraftfont.eot");
+  src: url("../fonts/minecraftfont.woff") format("woff"), url("../fonts/minecraftfont.ttf") format("truetype");
+}
+
+html, body {
+    cursor: url('assets/sword.png') 4 4, pointer !important;
+}
+
+button, a {
+    cursor: url('assets/pickaxe.png') 4 4, pointer !important;
+}
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 400px;
+    max-width: 90vw;
+    margin: 0 auto;
+}
+
+.UpperButtons {
+    width: 100%;
+    height: 44px;
+    text-decoration: none;
+    background-color: #727272;
+
+    background-image: 
+        radial-gradient(#7c7c7c 15%, transparent 16%), 
+        radial-gradient(#686868 15%, transparent 16%);
+    background-size: 8px 8px;
+    background-position: 0 0, 4px 4px;
+
+    border: 2px solid #000000;
+    box-shadow: 
+        inset 2px 2px 0 rgba(255, 255, 255, 0.45),
+        inset -2px -4px 0 rgba(0, 0, 0, 0.45);
+
+    color: #e0e0e0;
+    font-family: 'Minecraft', monospace;
+    font-size: 1.1rem;
+    text-shadow: 2px 2px 0 #383838;
+    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.UpperButtons:hover {
+    background-color: #7d89b8;
+    background-image: 
+        radial-gradient(#8894c4 15%, transparent 16%), 
+        radial-gradient(#717da8 15%, transparent 16%);
+    color: #ffffa0;
+    text-shadow: 2px 2px 0 #3f3f28;
+    box-shadow: 
+        inset 2px 2px 0 rgba(255, 255, 255, 0.6),
+        inset -2px -4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.UpperButtons:active {
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+#background {
+    background-image: 
+        linear-gradient(rgba(10, 8, 6, 0.65), rgba(10, 8, 6, 0.65)),
+        url("assets/dirt.png");
+    background-repeat: repeat;
+    background-size: 64px 64px;
+    image-rendering: pixelated;
+    z-index: 2;
+}
+
+.panoramaPicker {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    z-index: 10;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.panoramaOption {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 6px;
+    padding: 3px;
+    border: 1px solid white;
+    font-family: inherit;
+    cursor: pointer;
+    flex-wrap: wrap;
+}
+
+.panoramaOption img {
+    width: 500px;
+    height: 200px;
+    object-fit: cover;
+    image-rendering: pixelated;
+    display: block;
+}
+
+.topBar {
+    padding: 16px 16px 14px;
+    text-align: center;
+    border-bottom: 2px solid #140d08;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.55);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    font-family: 'Minecraft', monospace;
+    color: white;
+}
+
+.Pickerdescription {
+    font-family: 'Minecraft', monospace;
+    color: white;
+    font-size: 1.3rem;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.panoramaOption { 
+    transition: transform 0.14s ease, 
+    border-color 0.14s ease, 
+    box-shadow 0.14s ease;
+}
+
+.panoramaOption:hover {
+    transform: translateY(-3px);
+    border-color: gold; 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+}
+
+.panoramaOption:active {
+    transform: translateY(0);
+}
+

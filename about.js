@@ -13,7 +13,7 @@ document.addEventListener('click', function() {
             event.preventDefault();
             setTimeout(() => {
                 window.location.href = href;
-            }, 120);
+            }, 250);
         }
     }
 });

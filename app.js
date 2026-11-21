@@ -55,7 +55,12 @@ document.addEventListener('click', function() {
             event.preventDefault();
             setTimeout(() => {
                 window.location.href = href;
-            }, 120);
+            }, 250);
         }
     }
 });
+
+const savedPanorama = localStorage.getItem("selectedPanoramaUrl");
+if (savedPanorama) {
+    document.documentElement.style.setProperty("--panorama-bg", savedPanorama);
+}

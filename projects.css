@@ -121,7 +121,7 @@ body.projectsPage {
     flex-direction: column;
     align-items: stretch;
     font-family: 'Minecraft', monospace;
-    color: #ffffff;
+    color: white;
     background-color: #141414;
 }
 
@@ -312,7 +312,7 @@ body.projectsPage {
 
 .projectName {
     font-size: 1.8rem;
-    color: #ffffff;
+    color: white;
     text-shadow: 2px 2px 0 #242424;
 }
 
