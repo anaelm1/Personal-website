@@ -13,7 +13,7 @@ The website is coded in HTML, CSS and Javascript. The details/features of each p
 
 ### Screenshots
 Homepage:
-<img src="assets/ss.png"> 
+<img src="assets/ss.PNG"> 
 
 Projects Page:
 <img src="assets/ss2.PNG">
